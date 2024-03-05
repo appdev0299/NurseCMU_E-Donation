@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<?php require_once('head.php'); ?>
+
+<body id="section_1">
+
+    <?php require_once('header.php');
+    require_once('nav.php'); ?>
+    <main>
+        <section class="cta-section section-padding section-bg">
+            <br>
+            <div class="container">
+                <div class="row">
+                    <?php
+                    if (isset($_GET['id'])) {
+                        require_once 'connection.php';
+                        $stmt = $conn->prepare("SELECT * FROM pro_offline WHERE id=?");
+                        $stmt->execute([$_GET['id']]);
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                        // ตรวจสอบว่าพบข้อมูลโครงการหรือไม่ก่อนแสดงรูปภาพ
+                        if ($row) {
+                            $imageURL = "images/causes/" . $row['img_file'];
+                    ?>
+                            <div class="col-lg-5 col-12 mb-5 mb-lg-0">
+                                <img src="<?= $imageURL; ?>" class="custom-text-box-image img-fluid" alt="">
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
+
+                    <div class="col-lg-7 col-12">
+                        <div class="custom-text-box">
+                            <h3 class="mb-2"><?= $row['edo_name']; ?></h3>
+
+                            <h5 class="mb-3"><?= $row['edo_tex']; ?></h5>
+
+                            <p class="mb-0"><?= $row['edo_details']; ?></p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="custom-text-box mb-lg-0">
+                                    <h5 class="mb-3">วัตถุประสงค์</h5>
+                                    <p>รายละเอียดวัตถุประสงค์ ขอโครงการ</p>
+                                    <ul class="custom-list mt-2">
+                                        <?php if (!empty($row['edo_details_objective1'])) : ?>
+                                            <li class="custom-list-item d-flex">
+                                                <i class="bi-check custom-text-box-icon me-2"></i>
+                                                <?= $row['edo_details_objective1']; ?>
+                                            </li>
+                                        <?php endif; ?>
+
+                                        <?php if (!empty($row['edo_details_objective2'])) : ?>
+                                            <li class="custom-list-item d-flex">
+                                                <i class="bi-check custom-text-box-icon me-2"></i>
+                                                <?= $row['edo_details_objective2']; ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($row['edo_details_objective3'])) : ?>
+                                            <li class="custom-list-item d-flex">
+                                                <i class="bi-check custom-text-box-icon me-2"></i>
+                                                <?= $row['edo_details_objective3']; ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($row['edo_details_objective4'])) : ?>
+                                            <li class="custom-list-item d-flex">
+                                                <i class="bi-check custom-text-box-icon me-2"></i>
+                                                <?= $row['edo_details_objective4']; ?>
+                                            </li>
+                                        <?php endif; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h2></h2>
+                        <div class="col-lg-12 col-12">
+                            <a href="donateion_no.php?id=<?= $row['id']; ?>" class="custom-btn btn smoothscroll">บริจาคโดยไม่ประสงค์ออกนาม</a>
+                            <a href="donateion.php?id=<?= $row['id']; ?>" class="custom-btn btn smoothscroll">บริจาคเพื่อลดหย่อนภาษี</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <?php require_once('footer.php'); ?>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
