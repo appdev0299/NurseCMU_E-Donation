@@ -6,13 +6,13 @@
 
                 <ul class="footer-menu">
 
-                    <li class="footer-menu-item"><a href="index.php#top" class="footer-menu-link">หน้าหลัก</a></li>
+                    <li class="footer-menu-item"><a href="index#top" class="footer-menu-link">หน้าหลัก</a></li>
 
-                    <li class="footer-menu-item"><a href="index.php#section_2" class="footer-menu-link">บริจาค</a></li>
+                    <li class="footer-menu-item"><a href="index#section_2" class="footer-menu-link">บริจาค</a></li>
 
-                    <li class="footer-menu-item"><a href="index.php#section_3" class="footer-menu-link">เกี่ยวกับเรา</a></li>
+                    <li class="footer-menu-item"><a href="index#section_3" class="footer-menu-link">เกี่ยวกับเรา</a></li>
 
-                    <li class="footer-menu-item"><a href="index.php#section_4" class="footer-menu-link">ติดต่อเรา</a></li>
+                    <li class="footer-menu-item"><a href="index#section_4" class="footer-menu-link">ติดต่อเรา</a></li>
 
 
                 </ul>

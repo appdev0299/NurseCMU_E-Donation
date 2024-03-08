@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php
-include('login_info.php');
+// include('login_info.php');
 include('conf/head.php');
 ?>
 
@@ -209,16 +209,12 @@ include('conf/head.php');
                                                 <div class="card-body p-4">
                                                     <div class="table-responsive">
                                                         <?php
-                                                        $itemsPerPage = 10;
-                                                        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+                                                        $startIndex = 1;
                                                         $allDataSql = "SELECT COUNT(*) as total FROM ";
                                                         $allDataSql .= isset($_POST['showall']) && !empty($_POST['showall']) ? $_POST['showall'] : "receipt";
                                                         $allDataSql .= " WHERE 1=1";
                                                         $allDataStmt = $conn->prepare($allDataSql);
                                                         $allDataStmt->execute();
-                                                        $totalItems = $allDataStmt->fetch(PDO::FETCH_ASSOC)['total'];
-                                                        $totalPages = ceil($totalItems / $itemsPerPage);
-
                                                         // Fetch data for the current page
                                                         $sql = "SELECT * FROM ";
 
@@ -258,8 +254,7 @@ include('conf/head.php');
                                                         }
 
                                                         $sql .= " ORDER BY rec_date_out ASC";
-                                                        $offset = ($currentPage - 1) * $itemsPerPage;
-                                                        $sql .= " LIMIT :itemsPerPage OFFSET :offset";
+
                                                         $stmt = $conn->prepare($sql);
 
                                                         if (isset($start_date) && isset($end_date)) {
@@ -283,15 +278,12 @@ include('conf/head.php');
                                                             $stmt->bindParam(':receipt_cc', $selected_receipt_cc);
                                                         }
 
-                                                        $stmt->bindParam(':itemsPerPage', $itemsPerPage, PDO::PARAM_INT);
-                                                        $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
-
                                                         $stmt->execute();
                                                         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                                                         if (count($results) > 0) {
                                                         ?>
-                                                            <table class="table text-nowrap mb-0 align-middle">
+                                                            <table id="myTable" class="table text-nowrap mb-0 align-middle">
                                                                 <thead class="text-dark fs-4">
                                                                     <tr>
                                                                         <th class="border-bottom-0">
@@ -310,8 +302,7 @@ include('conf/head.php');
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-                                                                    $startIndex = ($currentPage - 1) * $itemsPerPage + 1;
-                                                                    foreach ($results as $row) :
+                                                                    foreach ($results as $row) {
                                                                     ?>
                                                                         <tr>
                                                                             <td class="border-bottom-0">
@@ -321,23 +312,12 @@ include('conf/head.php');
                                                                                 <h6 class="fw-semibold mb-1">
                                                                                     <?= $row['name_title']; ?> <?= $row['rec_name']; ?> <?= $row['rec_surname']; ?>
                                                                                 </h6>
-                                                                                <?php
-                                                                                if (!function_exists('formatThaiDate')) {
-                                                                                    function formatThaiDate($dateString)
-                                                                                    {
-                                                                                        $dateTime = new DateTime($dateString);
-                                                                                        $dateTime->modify('+543 years');
-                                                                                        return $dateTime->format('d-m-Y');
-                                                                                    }
-                                                                                }
-                                                                                ?>
                                                                                 <span class="fw-normal<?= ($row['receipt_cc'] == 'cancel') ? ' text-decoration-line-through' : ''; ?>">
                                                                                     <?= formatThaiDate($row['rec_date_out']); ?> | <?= $row['id_receipt']; ?>
                                                                                 </span>
-                                                                                <h6 class="fw-semibold mb-1">
-                                                                                </h6>
+                                                                                <h6 class="fw-semibold mb-1"></h6>
                                                                                 <span class="fw-normal<?= ($row['receipt_cc'] == 'cancel') ? ' text-decoration-line-through' : ''; ?>">
-                                                                                    <?php echo number_format($row['amount'], 2, '.', ','); ?> บาท | <?= $row['payby']; ?>
+                                                                                    <?= number_format($row['amount'], 2, '.', ','); ?> บาท | <?= $row['payby']; ?>
                                                                                 </span>
                                                                             </td>
                                                                             <td class="border-bottom-0 <?= ($row['receipt_cc'] == 'cancel') ? ' text-decoration-line-through' : ''; ?>">
@@ -349,37 +329,34 @@ include('conf/head.php');
                                                                                         <i class="bx bx-dots-vertical-rounded"></i>
                                                                                     </button>
                                                                                     <div class="dropdown-menu">
-                                                                                        <a class="dropdown-item" href="<?= ($row['receipt_cc'] == 'cancel') ? 'invoice_cancel.php?receipt_id=' . $row['receipt_id'] : 'invoice_confirm.php?receipt_id=' . $row['receipt_id'] ?>&ACTION=VIEW" target="_blank">
+                                                                                        <a class="dropdown-item" href="<?= ($row['receipt_cc'] == 'cancel') ? 'invoice_cancel?receipt_id=' . $row['receipt_id'] : 'invoice_confirm?receipt_id=' . $row['receipt_id'] ?>&ACTION=VIEW" target="_blank">
                                                                                             <i class="bx bx-file-pdf me-1"></i> PDF
                                                                                         </a>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
-                                                                    <?php endforeach; ?>
+                                                                    <?php
+                                                                    }
+                                                                    ?>
                                                                 </tbody>
                                                             </table>
-                                                            <?php
-                                                            if ($totalPages > 1) {
-                                                            ?>
-                                                                <div class="text-center mt-4">
-                                                                    <ul class="pagination justify-content-center">
-                                                                        <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
-                                                                            <li class="page-item <?php if ($i == $currentPage) echo 'active'; ?>">
-                                                                                <a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a>
-                                                                            </li>
-                                                                        <?php } ?>
-                                                                    </ul>
-                                                                </div>
                                                         <?php
-                                                            } else {
-                                                                echo "Total pages are not set.";
-                                                            }
                                                         } else {
                                                             echo "No data found.";
                                                         }
                                                         ?>
                                                     </div>
+
+                                                    <?php
+                                                    function formatThaiDate($dateString)
+                                                    {
+                                                        $dateTime = new DateTime($dateString);
+                                                        $dateTime->modify('+543 years');
+                                                        return $dateTime->format('d-m-Y');
+                                                    }
+                                                    ?>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -403,6 +380,14 @@ include('conf/head.php');
     <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
     <script src="../assets/js/dashboard.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+    <script>
+        $(document).ready(function() {
+            $("#myTable").DataTable();
+        });
+    </script>
 </body>
 
 </html>

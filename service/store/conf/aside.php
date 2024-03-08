@@ -2,7 +2,7 @@
     <!-- Sidebar scroll-->
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="./index.php" class="text-nowrap logo-img">
+            <a href="index" class="text-nowrap logo-img">
                 <img src="../assets/images/logos/dark-logo.svg" width="180" alt />
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -17,7 +17,7 @@
                     <span class="hide-menu">หน้าหลัก</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="index.php" aria-expanded="false">
+                    <a class="sidebar-link" href="index" aria-expanded="false">
                         <span>
                             <i class="ti ti-layout-dashboard"></i>
                         </span>
@@ -29,7 +29,7 @@
                     <span class="hide-menu">นำเข้าข้อมูลการจัดส่ง</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="order_check.php" aria-expanded="false">
+                    <a class="sidebar-link" href="order_check" aria-expanded="false">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>
@@ -42,7 +42,7 @@
                     <span class="hide-menu">รายการจัดส่ง</span>
                 </li>
                 <!-- <li class="sidebar-item">
-                    <a class="sidebar-link" href="store_order_all.php?check=all" aria-expanded="false">
+                    <a class="sidebar-link" href="store_order_all?check=all" aria-expanded="false">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -55,7 +55,7 @@
                     </a>
                 </li> -->
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="store_order_waitorder.php?check=waitorder" aria-expanded="false">
+                    <a class="sidebar-link" href="store_order_waitorder?check=waitorder" aria-expanded="false">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -69,7 +69,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="store_order_success.php?check=success" aria-expanded="false">
+                    <a class="sidebar-link" href="store_order_success?check=success" aria-expanded="false">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -82,7 +82,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="store_order_success.php?check=cancel" aria-expanded="false">
+                    <a class="sidebar-link" href="store_order_success?check=cancel" aria-expanded="false">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -99,7 +99,7 @@
                     <span class="hide-menu">ข้อมูลใบเสร็จ</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="invoice_report.php" aria-expanded="false">
+                    <a class="sidebar-link" href="store_report" aria-expanded="false">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>

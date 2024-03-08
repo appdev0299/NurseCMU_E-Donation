@@ -21,7 +21,7 @@ if (isset($_GET['user_id'])) {
                 timer: 1000,
                 showConfirmButton: false
             }, function() {
-                window.location = "user_data.php";
+                window.location = "user_data";
             });
         }, 200);
         
@@ -33,7 +33,7 @@ if (isset($_GET['user_id'])) {
                   title: "ลบข้อมูลผู้ใช้งานไม่สำเร็จ",
                   type: "error"
               }, function() {
-                  window.location = "user_data.php";
+                  window.location = "user_data";
               });
             }, 200);
         </script>';

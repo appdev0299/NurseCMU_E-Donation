@@ -10,10 +10,10 @@ if (isset($_SESSION['redirect_data'])) {
         // echo "Welcome, " . $loginInfo['firstname_EN'] . " " . $loginInfo['lastname_EN'] . "!";
         // echo "Status: " . $redirectData['status'];
     } else {
-        header("Location: ../oauth/login.php");
+        header("Location: ../oauth/login");
         exit;
     }
 } else {
-    header("Location: ../oauth/login.php");
+    header("Location: ../oauth/login");
     exit;
 }

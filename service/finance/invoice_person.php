@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php
-include('login_info.php');
+// include('login_info.php');
 include('conf/head.php');
 ?>
 
@@ -70,7 +70,6 @@ include('conf/head.php');
                                                     document.getElementById('userDropdown').addEventListener('change', function() {
                                                         var selectedOption = this.options[this.selectedIndex];
                                                         console.log(selectedOption.dataset); // Add this line for debugging
-
                                                         if (selectedOption) {
                                                             document.getElementById('selectedTitle').value = selectedOption.dataset.nameTitle;
                                                             document.getElementById('selectedName').value = selectedOption.dataset.recName;
@@ -88,7 +87,47 @@ include('conf/head.php');
                                                     });
                                                 </script>
 
-
+                                                <div class="col-md-3">
+                                                    <div class="mb-3">
+                                                        <label for="type_receipt" id="type_receipt" class="form-label">ประเภท</label>
+                                                        <select class="form-control" id="receiptType"> <!-- ใส่ ID สำหรับการอ้างอิง -->
+                                                            <option value="yes">ปกติ</option>
+                                                            <option value="no">ไม่ประสงค์ออกนาม</option>
+                                                        </select>
+                                                    </div>
+                                                    <script>
+                                                        document.getElementById('receiptType').addEventListener('change', function() {
+                                                            var selectedOption = this.value;
+                                                            if (selectedOption === "no") {
+                                                                document.querySelector('input[name="status_receipt"]').value = "no";
+                                                                document.getElementById('selectedName').value = "ไม่ประสงค์ออกนาม";
+                                                                document.getElementById('selectedSurname').value = " ";
+                                                                document.getElementById('selectedIdName').setAttribute('readonly', true);
+                                                                document.getElementById('selectedTel').setAttribute('readonly', true);
+                                                                document.getElementById('selectedEmail').setAttribute('readonly', true);
+                                                                document.getElementById('selectedAddress').setAttribute('readonly', true);
+                                                                document.getElementById('selectedRoad').setAttribute('readonly', true);
+                                                                document.getElementById('provincesInput').setAttribute('readonly', true);
+                                                                document.getElementById('amphuresInput').setAttribute('readonly', true);
+                                                                document.getElementById('districtsInput').setAttribute('readonly', true);
+                                                                document.getElementById('selectedZipCode').setAttribute('readonly', true);
+                                                            } else {
+                                                                document.querySelector('input[name="status_receipt"]').value = "yes";
+                                                                document.getElementById('selectedName').setAttribute('readonly', true);
+                                                                document.getElementById('selectedSurname').setAttribute('readonly', true);
+                                                                document.getElementById('selectedIdName').removeAttribute('readonly');
+                                                                document.getElementById('selectedTel').removeAttribute('readonly');
+                                                                document.getElementById('selectedEmail').removeAttribute('readonly');
+                                                                document.getElementById('selectedAddress').removeAttribute('readonly');
+                                                                document.getElementById('selectedRoad').removeAttribute('readonly');
+                                                                document.getElementById('provincesInput').removeAttribute('readonly');
+                                                                document.getElementById('amphuresInput').removeAttribute('readonly');
+                                                                document.getElementById('districtsInput').removeAttribute('readonly');
+                                                                document.getElementById('selectedZipCode').removeAttribute('readonly');
+                                                            }
+                                                        });
+                                                    </script>
+                                                </div>
                                                 <div class="col-md-3">
                                                     <div class="mb-3">
                                                         <label for="name_title" class="form-label">คำนำหน้าชื่อ</label>
@@ -112,6 +151,7 @@ include('conf/head.php');
                                                         <input type="text" name="rec_surname" class="form-control" id="selectedSurname" required>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-md-3">
                                                     <div class="mb-3">
                                                         <label for="rec_idname" class="form-label">เลขประจำตัวประชาชน</label>
@@ -315,10 +355,10 @@ include('conf/head.php');
                                             <script>
                                                 function disableSaveButton() {
                                                     document.getElementById("saveButton").innerHTML = "กรุณารอสักครู่ ระบบกำลังจัดส่ง email ไปยังผู้บริจาาค";
-                                                    document.getElementById("saveButton").disabled = true;
+                                                    document.getElementById("saveButton").readonly = true;
                                                     setTimeout(function() {
                                                         document.getElementById("saveButton").innerHTML = "ยืนยันการออกใบเสร็จ(บุคคล)";
-                                                        document.getElementById("saveButton").disabled = false;
+                                                        document.getElementById("saveButton").readonly = false;
                                                     }, 5000);
 
                                                     return true;

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php
-include('login_info.php');
+// include('login_info.php');
 include('conf/head.php');
 ?>
 
@@ -29,7 +29,7 @@ include('conf/head.php');
                                             $stmt->execute([$_GET['receipt_id']]);
                                             $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                             if ($stmt->rowCount() < 1) {
-                                                header('Location: index.php');
+                                                header('Location: index');
                                                 exit();
                                             }
                                         } //isset

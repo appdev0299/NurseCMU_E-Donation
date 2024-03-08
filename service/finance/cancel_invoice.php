@@ -36,9 +36,9 @@ if ($statusResult) {
                         // นำคุณไปยังเส้นทางที่ถูกต้องโดยตรวจสอบค่า status_donat และเปลี่ยนเส้นทางการนำทาง
                         var status_donat = "' . $status_donat . '";
                         if (status_donat === "online") {
-                            window.location.href = "invoice.php"; 
+                            window.location.href = "invoice"; 
                         } else {
-                            window.location.href = "invoice.php";
+                            window.location.href = "invoice";
                         }
                     });
                 });
@@ -64,9 +64,9 @@ if ($statusResult) {
                         // นำคุณไปยังเส้นทางที่ถูกต้องโดยตรวจสอบค่า status_donat และเปลี่ยนเส้นทางการนำทาง
                         var status_donat = "' . $status_donat . '";
                         if (status_donat === "online") {
-                            window.location.href = "invoice.php"; 
+                            window.location.href = "invoice"; 
                         } else {
-                            window.location.href = "invoice.php";
+                            window.location.href = "invoice";
                         }
                     });
                 });

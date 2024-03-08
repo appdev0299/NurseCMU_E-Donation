@@ -222,7 +222,7 @@
                                                     showConfirmButton: false
                                                 });
                                                 setTimeout(function() {
-                                                    window.location.href = "index.php#section_2";
+                                                    window.location.href = "index#section_2";
                                                 }, 5000);
                                             }
                                         }

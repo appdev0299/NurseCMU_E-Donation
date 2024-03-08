@@ -118,9 +118,9 @@ if (
       }, function(){
         var status_donat = "' . $_POST['status_donat'] . '";
         if (status_donat === "online") {
-          window.location.href = "invoice.php"; 
+          window.location.href = "invoice"; 
         } else {
-          window.location.href = "invoice.php";
+          window.location.href = "invoice";
         }
       });
     </script>';
@@ -138,9 +138,9 @@ if (
         // เพิ่มเงื่อนไขการเปลี่ยนเส้นทางการนำทางตามค่า status_donat
         var status_donat = "' . $_POST['status_donat'] . '";
         if (status_donat === "online") {
-          window.location.href = "invoice.php"; 
+          window.location.href = "invoice"; 
         } else {
-          window.location.href = "invoice.php";
+          window.location.href = "invoice";
         }
       });
     </script>';

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php
-include('login_info.php');
+// include('login_info.php');
 include('conf/head.php');
 ?>
 
@@ -58,7 +58,7 @@ include('conf/head.php');
                                                                     timer: 2100,
                                                                     showConfirmButton: false
                                                                 }, function(){
-                                                                    window.location.href = "order_check.php";
+                                                                    window.location.href = "order_check";
                                                                 });
                                                             });
                                                         </script>';
@@ -126,7 +126,7 @@ include('conf/head.php');
                                                                     timer: 2100,
                                                                     showConfirmButton: false
                                                                 }, function(){
-                                                                    window.location.href = "order_check.php";
+                                                                    window.location.href = "order_check";
                                                                 });
                                                             });
                                                         </script>';
@@ -145,7 +145,7 @@ include('conf/head.php');
                                                                     timer: 2500,
                                                                     showConfirmButton: false
                                                                 }, function(){
-                                                                    window.location.href = "order_check.php";
+                                                                    window.location.href = "order_check";
                                                                 });
                                                             });
                                                         </script>';
@@ -162,10 +162,10 @@ include('conf/head.php');
                                                         title: "หมายเลขออเดอร์ไม่มีในระบบ",
                                                         text: "กรุณารอตรวจสอบหมายเลขออเดอร์ใหม่",
                                                         type: "error",
-                                                        timer: 3000,
+                                                        timer: 2000,
                                                         showConfirmButton: false
                                                     }, function(){
-                                                        window.location.href = "order_check.php";
+                                                        window.location.href = "order_check";
                                                     });
                                                 });
                                             </script>';

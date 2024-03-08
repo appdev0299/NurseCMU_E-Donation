@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php
-include('login_info.php');
+// include('login_info.php');
 include('conf/head.php');
 ?>
 
@@ -73,7 +73,7 @@ include('conf/head.php');
                                                                         timer: 2000, 
                                                                         showConfirmButton: false 
                                                                     }, function(){
-                                                                        window.location.href = "storage_add.php"; 
+                                                                        window.location.href = "storage_add"; 
                                                                     });
                                                                 });
                                                             </script>';
@@ -90,7 +90,7 @@ include('conf/head.php');
                                                                         timer: 2000, 
                                                                         showConfirmButton: false 
                                                                     }, function(){
-                                                                        window.location.href = "storage_add.php"; 
+                                                                        window.location.href = "storage_add"; 
                                                                     });
                                                                 });
                                                             </script>';
@@ -107,7 +107,7 @@ include('conf/head.php');
                                                                         timer: 2000, 
                                                                         showConfirmButton: false 
                                                                     }, function(){
-                                                                        window.location.href = "storage_add.php"; 
+                                                                        window.location.href = "storage_add"; 
                                                                     });
                                                                 });
                                                             </script>';
@@ -136,7 +136,7 @@ include('conf/head.php');
                                                                             timer: 2000, 
                                                                             showConfirmButton: false 
                                                                         }, function(){
-                                                                            window.location.href = "storage_add.php"; 
+                                                                            window.location.href = "storage_add"; 
                                                                         });
                                                                     });
                                                                 </script>';
@@ -153,7 +153,7 @@ include('conf/head.php');
                                                                             timer: 2000, 
                                                                             showConfirmButton: false 
                                                                         }, function(){
-                                                                            window.location.href = "storage_add.php"; 
+                                                                            window.location.href = "storage_add"; 
                                                                         });
                                                                     });
                                                                 </script>';

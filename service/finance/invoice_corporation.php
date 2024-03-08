@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php
-include('login_info.php');
+// include('login_info.php');
 include('conf/head.php');
 ?>
 
@@ -83,6 +83,45 @@ include('conf/head.php');
                                                         }
                                                     });
                                                 </script>
+                                                <div class="col-md-3">
+                                                    <div class="mb-3">
+                                                        <label for="type_receipt" id="type_receipt" class="form-label">ประเภท</label>
+                                                        <select class="form-control" id="receiptType">
+                                                            <option value="yes">ปกติ</option>
+                                                            <option value="no">ไม่ประสงค์ออกนาม</option>
+                                                        </select>
+                                                    </div>
+                                                    <script>
+                                                        document.getElementById('receiptType').addEventListener('change', function() {
+                                                            var selectedOption = this.value;
+                                                            if (selectedOption === "no") {
+                                                                document.querySelector('input[name="status_receipt"]').value = "no";
+                                                                document.getElementById('selectedName').value = "ไม่ประสงค์ออกนาม";
+                                                                document.getElementById('selectedIdName').setAttribute('readonly', true);
+                                                                document.getElementById('selectedTel').setAttribute('readonly', true);
+                                                                document.getElementById('selectedEmail').setAttribute('readonly', true);
+                                                                document.getElementById('selectedAddress').setAttribute('readonly', true);
+                                                                document.getElementById('selectedRoad').setAttribute('readonly', true);
+                                                                document.getElementById('provincesInput').setAttribute('readonly', true);
+                                                                document.getElementById('amphuresInput').setAttribute('readonly', true);
+                                                                document.getElementById('districtsInput').setAttribute('readonly', true);
+                                                                document.getElementById('selectedZipCode').setAttribute('readonly', true);
+                                                            } else {
+                                                                document.querySelector('input[name="status_receipt"]').value = "yes";
+                                                                document.getElementById('selectedName').setAttribute('readonly', true);
+                                                                document.getElementById('selectedIdName').removeAttribute('readonly');
+                                                                document.getElementById('selectedTel').removeAttribute('readonly');
+                                                                document.getElementById('selectedEmail').removeAttribute('readonly');
+                                                                document.getElementById('selectedAddress').removeAttribute('readonly');
+                                                                document.getElementById('selectedRoad').removeAttribute('readonly');
+                                                                document.getElementById('provincesInput').removeAttribute('readonly');
+                                                                document.getElementById('amphuresInput').removeAttribute('readonly');
+                                                                document.getElementById('districtsInput').removeAttribute('readonly');
+                                                                document.getElementById('selectedZipCode').removeAttribute('readonly');
+                                                            }
+                                                        });
+                                                    </script>
+                                                </div>
                                                 <div class="col-md-3">
                                                     <div class="mb-3">
                                                         <label for="rec_name" class="form-label">นิติบุคลล/บริษัท</label>

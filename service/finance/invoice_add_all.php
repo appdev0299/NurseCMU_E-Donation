@@ -246,7 +246,7 @@ if (
                         }
                         // 6GxKHxqMlBcaPv1ufWmDiJNDucPJSWPQ42sJwPOsQQL bot test
                         // VnaAYBFqNRPYNLKLeBA3Uk9kFFyFsYdUbw8SmU9HNWf 
-                        $sToken = ["VnaAYBFqNRPYNLKLeBA3Uk9kFFyFsYdUbw8SmU9HNWf"]; // เพิ่ม Token ของคุณที่นี่
+                        $sToken = ["6GxKHxqMlBcaPv1ufWmDiJNDucPJSWPQ42sJwPOsQQL"]; // เพิ่ม Token ของคุณที่นี่
                         $sMessage = "\n";
                         $sMessage .= "โครงการ: " . $edo_description . "\n";
                         $sMessage .= "\n";
@@ -273,7 +273,7 @@ if (
                             timer: 2000, 
                             showConfirmButton: false 
                         }, function(){
-                            window.location.href = "invoice.php"; 
+                            window.location.href = "invoice"; 
                         });
                     </script>';
                     } else {
@@ -283,7 +283,7 @@ if (
                     title: "เกิดข้อผิดพลาดในการอัปเดตค่า id_receipt",
                     type: "error"
                 }, function() {
-                    window.location = "invoice.php";
+                    window.location = "invoice";
                 });
             </script>';
                     }
@@ -294,7 +294,7 @@ if (
                       title: "เกิดข้อผิดพลาดในการบันทึกข้อมูลในตาราง receipt_offline",
                       type: "error"
                   }, function() {
-                      window.location = "invoice.php";
+                      window.location = "invoice";
                   });
               </script>';
                 }
@@ -305,7 +305,7 @@ if (
                     title: "เกิดข้อผิดพลาดในการอัปเดตค่า ref1",
                     type: "error"
                 }, function() {
-                    window.location = "invoice.php";
+                    window.location = "invoice";
                 });
             </script>';
             }
@@ -316,7 +316,7 @@ if (
                     title: "เกิดข้อผิดพลาดในการบันทึกข้อมูลในตาราง receipt_offline",
                     type: "error"
                 }, function() {
-                    window.location = "invoice.php";
+                    window.location = "invoice";
                 });
             </script>';
         }
@@ -326,7 +326,7 @@ if (
                 title: "เกิดข้อผิดพลาดในการทำงาน",
                 type: "error"
             }, function() {
-                window.location = "invoice.php";
+                window.location = "invoice";
             });
         </script>';
         echo "Error: " . $e->getMessage();

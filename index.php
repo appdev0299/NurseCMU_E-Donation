@@ -68,7 +68,7 @@
                                         <h5 class="mb-3"><?= $t1['edo_name']; ?></h5>
                                         <p><?= $t1['edo_tex']; ?></p>
                                     </div>
-                                    <a href="donate_details.php?id=<?= $edoId; ?>" class="custom-btn btn">บริจาค</a>
+                                    <a href="donate_details?id=<?= $edoId; ?>" class="custom-btn btn">บริจาค</a>
                                 </div>
                             </div>
                         </div>

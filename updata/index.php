@@ -23,7 +23,7 @@
 //     // เชื่อมต่อฐานข้อมูล
 //     $servername = "localhost";
 //     $username = "edonation";
-//     $password = "edonate@FON";
+//     $password = "";
 //     $dbname = "edonation";
 //     // สร้างการเชื่อมต่อ
 //     $conn = new mysqli($servername, $username, $password, $dbname);

@@ -9,7 +9,7 @@ if ($data !== null) {
     $rec_date_out = $data['rec_date_out'];
     $ref1 = $data['ref1'];
     try {
-        $pdo = new PDO('mysql:host=localhost;dbname=edonation;charset=utf8', 'edonation', 'edonate@FON');
+        $pdo = new PDO('mysql:host=localhost;dbname=edonation;charset=utf8', 'edonation', '');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // ตรวจสอบว่ามีข้อมูลที่ตรงกันในตาราง json_confirm
@@ -198,7 +198,7 @@ if ($data !== null) {
                                 }
                                 // 6GxKHxqMlBcaPv1ufWmDiJNDucPJSWPQ42sJwPOsQQL bot test
                                 // VnaAYBFqNRPYNLKLeBA3Uk9kFFyFsYdUbw8SmU9HNWf 
-                                $sToken = ["VnaAYBFqNRPYNLKLeBA3Uk9kFFyFsYdUbw8SmU9HNWf"]; // เพิ่ม Token ของคุณที่นี่
+                                $sToken = ["6GxKHxqMlBcaPv1ufWmDiJNDucPJSWPQ42sJwPOsQQL"]; // เพิ่ม Token ของคุณที่นี่
                                 $sMessage = "\n";
                                 $sMessage .= "โครงการ: " . $edo_description . "\n";
                                 $sMessage .= "\n";

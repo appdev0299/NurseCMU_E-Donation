@@ -14,7 +14,7 @@ if ($data && isset($data->password) && isset($data->receipt_id)) {
 
         $response = array('success' => true, 'message' => 'กรุณากรอกมหายเลขบัตรที่ถูกต้อง');
 
-        $pdfUrl = "pdf_maker.php?receipt_id=$receipt_id&ACTION=VIEW";
+        $pdfUrl = "pdf_maker?receipt_id=$receipt_id&ACTION=VIEW";
 
         $response['pdfUrl'] = $pdfUrl;
     } else {

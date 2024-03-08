@@ -75,8 +75,8 @@
                         </div>
                         <h2></h2>
                         <div class="col-lg-12 col-12">
-                            <a href="donateion_no.php?id=<?= $row['id']; ?>" class="custom-btn btn smoothscroll">บริจาคโดยไม่ประสงค์ออกนาม</a>
-                            <a href="donateion.php?id=<?= $row['id']; ?>" class="custom-btn btn smoothscroll">บริจาคเพื่อลดหย่อนภาษี</a>
+                            <a href="donateion_no?id=<?= $row['id']; ?>" class="custom-btn btn smoothscroll">บริจาคโดยไม่ประสงค์ออกนาม</a>
+                            <a href="donateion?id=<?= $row['id']; ?>" class="custom-btn btn smoothscroll">บริจาคเพื่อลดหย่อนภาษี</a>
                         </div>
                     </div>
                 </div>

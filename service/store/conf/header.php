@@ -10,7 +10,7 @@
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                 <li class="nav-item dropdown">
-                    <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <!-- <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
                         <?php
                         $firstname_EN = $loginInfo['firstname_EN'];
                         $imageFileName = "../assets/images/profile/" . $firstname_EN . ".jpg";
@@ -20,10 +20,10 @@
                             echo '<img src="../assets/images/profile/default.jpg" alt width="35" height="35" class="rounded-circle">';
                         }
                         ?>
-                    </a>
+                    </a> -->
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                         <div class="message-body">
-                            <div class="d-flex align-items-center py-9 mx-7 border-bottom">
+                            <!-- <div class="d-flex align-items-center py-9 mx-7 border-bottom">
                                 <?php
                                 $firstname_EN = $loginInfo['firstname_EN'];
                                 $imageFileName = "../assets/images/profile/" . $firstname_EN . ".jpg";
@@ -39,7 +39,7 @@
                                         <i class="ti ti-mail fs-4"></i> <?php echo $loginInfo['cmuitaccount']; ?>
                                     </p>
                                 </div>
-                            </div>
+                            </div> -->
                             <a href="user_view.php" class="d-flex align-items-center gap-2 dropdown-item">
                                 <i class="ti ti-user fs-6"></i>
                                 <p class="mb-0 fs-3">ข้อมูลส่วนตัว</p>

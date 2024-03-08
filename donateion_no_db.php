@@ -154,7 +154,7 @@ if (
             timer: 2000,
             showConfirmButton: false
           }, function(){
-            window.location.href = "qrgenerator.php?id=' . $lastInsertedId . '&amount=' . $_POST['amount'] . '&rec_date_out=' . $_POST['rec_date_out'] . '&ref1=' . $last_two_digits  . $id_suffix . '";
+            window.location.href = "qrgenerator?id=' . $lastInsertedId . '&amount=' . $_POST['amount'] . '&rec_date_out=' . $_POST['rec_date_out'] . '&ref1=' . $last_two_digits  . $id_suffix . '";
           });
         </script>';
       } else {
@@ -164,7 +164,7 @@ if (
             title: "เกิดข้อผิดพลาดในการอัปเดต",
             type: "error"
           }, function() {
-            window.location = "index.php";
+            window.location = "index";
           });
         </script>';
       }
@@ -175,7 +175,7 @@ if (
           title: "เกิดข้อผิดพลาดในการบันทึกข้อมูล",
           type: "error"
         }, function() {
-          window.location = "donate_no_receipt.php";
+          window.location = "donate_no_receipt";
         });
       </script>';
     }

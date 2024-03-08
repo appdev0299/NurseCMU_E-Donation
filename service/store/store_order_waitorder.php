@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php
-include('login_info.php');
+// include('login_info.php');
 include('conf/head.php');
 ?>
 
@@ -309,7 +309,7 @@ include('conf/head.php');
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <a class="btn btn-primary btn-circle btn-xl me-1 mb-3 mb-lg-3" href="order_invoice.php?selectedIds=<?= $t1['receipt_id']; ?>&ACTION=VIEW" target="_blank">
+                                                            <a class="btn btn-primary btn-circle btn-xl me-1 mb-3 mb-lg-3" href="order_invoice?selectedIds=<?= $t1['receipt_id']; ?>&ACTION=VIEW" target="_blank">
                                                                 <i class="ti ti-printer fs-5"></i> พิมพ์ออเดอร์
                                                             </a>
                                                         </div>

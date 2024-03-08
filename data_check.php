@@ -9,7 +9,7 @@ if ($data !== null) {
     $rec_date_out = $data['rec_date_out'];
     $ref1 = $data['ref1'];
     try {
-        $pdo = new PDO('mysql:host=localhost;dbname=edonation;charset=utf8', 'edonation', 'edonate@FON');
+        $pdo = new PDO('mysql:host=localhost;dbname=edonation;charset=utf8', 'edonation', '');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // ตรวจสอบว่ามีข้อมูลที่ตรงกันในตาราง json_confirm

@@ -73,7 +73,7 @@ if (
         timer: 2000, 
         showConfirmButton: false 
     }, function(){
-        window.location.href = "user_data.php"; 
+        window.location.href = "user_data"; 
     });
     </script>';
     } else {
@@ -89,7 +89,7 @@ if (
         timer: 2000, 
         showConfirmButton: false 
     }, function(){
-        window.location.href = "user_data.php"; 
+        window.location.href = "user_data"; 
     });
     </script>';
     }
