@@ -351,7 +351,7 @@ if ($count > 0) {
     // คำนวณตำแหน่ง X ให้รูปภาพอยู่ตรงกลางของเซลล์
     $x = $pdf->GetX() + ($cellWidth - $imageWidth) / 2;
     // คำนวณตำแหน่ง Y ให้รูปภาพอยู่ด้านบนของเซลล์ โดยเพิ่มค่า Y ที่ได้จากบรรทัดก่อนหน้านี้
-    $y += 153;
+    $y += 160;
 
     $pdf->Image($img, $x, $y, $imageWidth, 30, '', '', '', false, 300, '', false, false, 0, false, false, false);
 
@@ -420,7 +420,7 @@ if ($count > 0) {
 		</tr>
 
 		<tr>
-			<tdalign="right" colspan="2"><b>ที่อยู่/Address : </b>' . $inv_mst_data_row['address'] . ' ' . $inv_mst_data_row['road'] . ' ' . $inv_mst_data_row['districts'] . ' ' . $inv_mst_data_row['amphures'] . ' ' . $inv_mst_data_row['provinces'] . ' </tdalign=>
+			<td colspan="2"><b>ที่อยู่/Address : </b>' . $inv_mst_data_row['address'] . ' ' . $inv_mst_data_row['road'] . ' ' . $inv_mst_data_row['districts'] . ' ' . $inv_mst_data_row['amphures'] . ' ' . $inv_mst_data_row['provinces'] . ' </td>
 		</tr>
 
 		<tr>
@@ -490,7 +490,6 @@ if ($count > 0) {
 		<tr>
 			<td colspan="2" style="text-align: center;">ขอให้กุศลผลบุญจากการบริจาคของท่านในครั้งนี้<br>โปรดดลบันดาลให้ท่านประสบแต่ความสุขสวัสดี ปราศจากทุกข์โศกโรคภัย<br>ปราถนาสิ่งใดให้สำเร็จสมดังประสงค์ทุกประการ<br>ให้ไว้ ณ วันที่  ' . $rec_day . ' ' . $rec_month . ' ' . $rec_yearth . '</td>
 		</tr>
-		<br>
 		<br>
 		<br>
 		<br>

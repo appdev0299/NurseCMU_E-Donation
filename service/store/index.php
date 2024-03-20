@@ -49,16 +49,12 @@ include('conf/head.php');
                     }
                     ?>
                 </div>
-
-
-
                 <?php
                 include('conf/footer.php');
                 ?>
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
     <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/sidebarmenu.js"></script>
@@ -66,6 +62,7 @@ include('conf/head.php');
     <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
     <script src="../assets/js/dashboard.js"></script>
+
 </body>
 
 </html>

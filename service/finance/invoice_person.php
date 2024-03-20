@@ -102,6 +102,7 @@ include('conf/head.php');
                                                                 document.querySelector('input[name="status_receipt"]').value = "no";
                                                                 document.getElementById('selectedName').value = "ไม่ประสงค์ออกนาม";
                                                                 document.getElementById('selectedSurname').value = " ";
+                                                                document.getElementById('selectedTitle').setAttribute('readonly', true);
                                                                 document.getElementById('selectedIdName').setAttribute('readonly', true);
                                                                 document.getElementById('selectedTel').setAttribute('readonly', true);
                                                                 document.getElementById('selectedEmail').setAttribute('readonly', true);
@@ -113,6 +114,7 @@ include('conf/head.php');
                                                                 document.getElementById('selectedZipCode').setAttribute('readonly', true);
                                                             } else {
                                                                 document.querySelector('input[name="status_receipt"]').value = "yes";
+                                                                document.getElementById('selectedTitle').setAttribute('readonly', true);
                                                                 document.getElementById('selectedName').setAttribute('readonly', true);
                                                                 document.getElementById('selectedSurname').setAttribute('readonly', true);
                                                                 document.getElementById('selectedIdName').removeAttribute('readonly');

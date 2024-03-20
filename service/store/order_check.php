@@ -46,22 +46,22 @@ include('conf/head.php');
 
                                                 if ($duplicate_exists) {
                                                     echo '
-                                                        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-                                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-                                                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-                                                        <script>
-                                                            $(document).ready(function(){
-                                                                swal({
-                                                                    title: "ออเดอร์นี้มีการจัดส่งแล้ว",
-                                                                    text: "กรุณาตรวจสอบออเดอร์",
-                                                                    type: "error",
-                                                                    timer: 2100,
-                                                                    showConfirmButton: false
-                                                                }, function(){
-                                                                    window.location.href = "order_check";
-                                                                });
-                                                            });
-                                                        </script>';
+                                                <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+                                                <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+                                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+                                                <script>
+                                                    $(document).ready(function(){
+                                                        swal({
+                                                            title: "ออเดอร์นี้มีการจัดส่งแล้ว",
+                                                            text: "กรุณาตรวจสอบออเดอร์",
+                                                            type: "error",
+                                                            timer: 2100,
+                                                            showConfirmButton: false
+                                                        }, function(){
+                                                            window.location.href = "order_check";
+                                                        });
+                                                    });
+                                                </script>';
                                                 } else {
                                                     // เพิ่มข้อมูลลงในตาราง store
                                                     $user_order = isset($_POST['user_order']) ? $_POST['user_order'] : '';
@@ -105,7 +105,7 @@ include('conf/head.php');
                                                     $stmt_insert->bindParam(':storage_id', $storage_id);
                                                     $stmt_insert->bindParam(':order_set', $order_set);
 
-
+                                                    // ตรวจสอบว่าการ INSERT สำเร็จหรือไม่
                                                     if ($stmt_insert->execute()) {
                                                         // ถ้า INSERT สำเร็จ
                                                         // ลดจำนวน items ในตาราง storage ที่มี storage_id ตรงกับ id ในตาราง storage ลงทีละหนึ่ง (1)
@@ -113,42 +113,60 @@ include('conf/head.php');
                                                         $stmt_update_storage->bindParam(':storage_id', $storage_id);
                                                         $stmt_update_storage->execute();
 
+                                                        // เพิ่มข้อมูลลงในตาราง store_log
+                                                        $dateCreate = date("Y-m-d H:i:s"); // วันที่และเวลาปัจจุบัน
+                                                        $comment = "ตัดยอดตามระบบ";
+                                                        $name = "phatchararpon";
+                                                        $items = 1;
+                                                        $order_receipt = $result['id_receipt']; // กำหนดค่า order_receipt จากผลลัพธ์ที่ได้จากการค้นหาในตาราง receipt
+
+                                                        $stmt_insert_log = $conn->prepare("INSERT INTO store_log (storage_id, order_set, dateCreate, comment, name, items, order_receipt, order_ref1) VALUES (:storage_id, :order_set, :dateCreate, :comment, :name, :items, :order_receipt, :order_ref1)");
+                                                        $stmt_insert_log->bindParam(':storage_id', $storage_id);
+                                                        $stmt_insert_log->bindParam(':order_set', $order_set);
+                                                        $stmt_insert_log->bindParam(':dateCreate', $dateCreate);
+                                                        $stmt_insert_log->bindParam(':order_receipt', $order_receipt);
+                                                        $stmt_insert_log->bindParam(':order_ref1', $result['ref1']); // เพิ่มการผูกพารามิเตอร์สำหรับ order_ref1
+                                                        $stmt_insert_log->bindParam(':comment', $comment);
+                                                        $stmt_insert_log->bindParam(':name', $name);
+                                                        $stmt_insert_log->bindParam(':items', $items);
+                                                        $stmt_insert_log->execute();
+
+                                                        // แสดงข้อความสำเร็จ
                                                         echo '
-                                                        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-                                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-                                                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-                                                        <script>
-                                                            $(document).ready(function(){
-                                                                swal({
-                                                                    title: "บันทึกการจัดส่งสำเร็จ",
-                                                                    text: "กรุณารอสักครู่",
-                                                                    type: "success",
-                                                                    timer: 2100,
-                                                                    showConfirmButton: false
-                                                                }, function(){
-                                                                    window.location.href = "order_check";
-                                                                });
+                                                    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+                                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+                                                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+                                                    <script>
+                                                        $(document).ready(function(){
+                                                            swal({
+                                                                title: "บันทึกการจัดส่งสำเร็จ",
+                                                                text: "กรุณารอสักครู่",
+                                                                type: "success",
+                                                                timer: 2100,
+                                                                showConfirmButton: false
+                                                            }, function(){
+                                                                window.location.href = "order_check";
                                                             });
-                                                        </script>';
+                                                        });
+                                                    </script>';
                                                     } else {
-                                                        // ถ้า INSERT ไม่สำเร็จ
                                                         echo '
-                                                        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-                                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-                                                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-                                                        <script>
-                                                            $(document).ready(function(){
-                                                                swal({
-                                                                    title: "บันทึกการจัดส่งไม่สำเร็จ",
-                                                                    text: "กรุณารอสักครู่",
-                                                                    type: "error",
-                                                                    timer: 2500,
-                                                                    showConfirmButton: false
-                                                                }, function(){
-                                                                    window.location.href = "order_check";
-                                                                });
+                                                    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+                                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+                                                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+                                                    <script>
+                                                        $(document).ready(function(){
+                                                            swal({
+                                                                title: "บันทึกการจัดส่งไม่สำเร็จ",
+                                                                text: "กรุณารอสักครู่",
+                                                                type: "error",
+                                                                timer: 2500,
+                                                                showConfirmButton: false
+                                                            }, function(){
+                                                                window.location.href = "order_check";
                                                             });
-                                                        </script>';
+                                                        });
+                                                    </script>';
                                                     }
                                                 }
                                             } else {

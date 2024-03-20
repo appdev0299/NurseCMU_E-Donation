@@ -19,31 +19,19 @@ include('conf/head.php');
                     <div class="col-lg-12 d-flex align-items-stretch">
                         <div class="card w-100">
                             <div class="card-body p-4">
-                                <div class="table-responsive">
-                                    <div class="text-end md-3">
-                                        <a class="btn btn-primary btn-circle btn-xl me-1 mb-3 mb-lg-3" id="printButtonform1">
-                                            <i class="ti ti-printer fs-5"></i> พิมพ์ออเดอร์
-                                        </a>
+                                <div class="text-end md-3">
+                                    <a class="btn btn-primary btn-circle btn-xl me-1 mb-3 mb-lg-3" id="printButtonA4">
+                                        <i class="ti ti-printer fs-5"></i> พิมพ์ออเดอร์ ขนาด A4
                                         <script>
                                             document.addEventListener("DOMContentLoaded", function() {
-                                                var table = document.getElementById("myTable");
-                                                var checkboxes = table.querySelectorAll(".form-check-input");
-                                                var printButtonform1 = document.getElementById("printButtonform1");
+                                                var printButtonA4 = document.getElementById("printButtonA4");
 
-                                                checkboxes.forEach(function(checkbox) {
-                                                    checkbox.addEventListener("change", function() {
-                                                        handleCheckboxChange();
-                                                    });
-                                                });
-
-                                                printButtonform1.addEventListener("click", function() {
-                                                    handlePrintButtonClick();
+                                                printButtonA4.addEventListener("click", function() {
+                                                    handlePrintButtonClickA4();
                                                 });
                                             });
 
-                                            function handleCheckboxChange() {}
-
-                                            function handlePrintButtonClick() {
+                                            function handlePrintButtonClickA4() {
                                                 var selectedIds = [];
                                                 var checkboxes = document.querySelectorAll(".form-check-input:checked");
                                                 checkboxes.forEach(function(checkbox) {
@@ -52,13 +40,43 @@ include('conf/head.php');
 
                                                 if (selectedIds.length > 0) {
                                                     var printWindow = window.open("about:blank", '_blank');
-                                                    printWindow.location.href = "order_invoice.php?selectedIds=" + selectedIds.join(",") + "&ACTION=VIEW";
+                                                    printWindow.location.href = "order_invoiceA4.php?selectedIds=" + selectedIds.join(",") + "&ACTION=VIEW";
                                                 } else {
                                                     alert("กรุณาเลือกข้อมูลที่ต้องการ Print");
                                                 }
                                             }
                                         </script>
-                                    </div>
+                                    </a>
+                                    <a class="btn btn-primary btn-circle btn-xl me-1 mb-3 mb-lg-3" id="printButtonform1">
+                                        <i class="ti ti-printer fs-5"></i> พิมพ์ออเดอร์
+                                    </a>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var printButtonform1 = document.getElementById("printButtonform1");
+
+                                            printButtonform1.addEventListener("click", function() {
+                                                handlePrintButtonClick();
+                                            });
+                                        });
+
+                                        function handlePrintButtonClick() {
+                                            var selectedIds = [];
+                                            var checkboxes = document.querySelectorAll(".form-check-input:checked");
+                                            checkboxes.forEach(function(checkbox) {
+                                                selectedIds.push(checkbox.value);
+                                            });
+
+                                            if (selectedIds.length > 0) {
+                                                var printWindow = window.open("about:blank", '_blank');
+                                                printWindow.location.href = "order_invoice.php?selectedIds=" + selectedIds.join(",") + "&ACTION=VIEW";
+                                            } else {
+                                                alert("กรุณาเลือกข้อมูลที่ต้องการ Print");
+                                            }
+                                        }
+                                    </script>
+
+                                </div>
+                                <div class="table-responsive">
                                     <table id="myTable" class="table table-striped" style="width:100%">
                                         <thead>
                                             <tr>
